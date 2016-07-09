@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StepCount</string>
+    <string name="step_count">步数: </string>
+</resources>
