@@ -9,11 +9,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cc.stepcount.service.StepCounterService;
+import com.timqi.sectorprogressview.ColorfulRingProgressView;
 
 import me.pedometer.StepDetector;
 
 public class MainActivity extends Activity {
-
+    private ColorfulRingProgressView crpv;
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextView stepTv;
     private Thread thread;  //定义线程对象
@@ -23,9 +24,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        crpv=(ColorfulRingProgressView) findViewById(R.id.crpv);
         stepTv = (TextView) findViewById(R.id.activity_main_step_tv);
         initThreadToPedometer();
-
+        startService(new Intent(this, StepCounterService.class));
     }
 
     private void initThreadToPedometer() {
@@ -75,7 +77,8 @@ public class MainActivity extends Activity {
             super.handleMessage(msg);        // 此处可以更新UI
 
             countStep();          //调用步数方法
-            stepTv.setText(total_step + "");// 显示当前步数
+            stepTv.setText(total_step+"");// 显示当前步数
+            crpv.setPercent(total_step/10);
         }
     };
 
@@ -88,10 +91,7 @@ public class MainActivity extends Activity {
 
         total_step = StepDetector.CURRENT_STEP;
     }
-    public void onStartClick(View view) {
 
-        startService(new Intent(this, StepCounterService.class));
-    }
 
     public void onStopClick(View view) {
         stopService(new Intent(this, StepCounterService.class));
