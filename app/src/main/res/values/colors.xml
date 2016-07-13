@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#29d7a9</color>
-    <color name="colorPrimaryDark">#1fcc9e</color>
+    <color name="colorPrimary">#02b99d</color>
+    <color name="colorPrimaryDark">#02b99d</color>
     <color name="colorAccent">#FF4081</color>
     <color name="inside_progress">#ff6c4d70</color>
     <color name="external_progress">#9C27B0</color>

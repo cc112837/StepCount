@@ -5,25 +5,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="12">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#02b99d"
+        android:gravity="center"
+        android:text="个人运动"
+        android:textColor="#fff"
+        android:textSize="18sp" />
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
         android:layout_height="wrap_content">
 
         <com.timqi.sectorprogressview.ColorfulRingProgressView
             android:id="@+id/crpv"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
             android:layout_gravity="center"
             app:bgColor="#e1e1e1"
-            app:fgColorEnd="#27a47a"
-            app:fgColorStart="#49fdc1"
+            app:fgColorEnd="#02b99d"
+            app:fgColorStart="#2fbca7"
             app:startAngle="0"
             app:strokeWidth="15dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="center"
             android:orientation="vertical">
 
@@ -31,26 +47,76 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="今日步数" />
+                android:text="今日步数"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/activity_main_step_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="0"
-                android:textColor="#9b0f0f"
-                android:textSize="28sp" />
+                android:text="2340"
+                android:layout_marginTop="5dp"
+                android:textColor="#101010"
+                android:textSize="40sp" />
         </LinearLayout>
     </FrameLayout>
 
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:onClick="onStopClick"
-        android:text="stop" />
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@mipmap/backing"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="28dp"
+                android:layout_gravity="left"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/week" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:gravity="right|center_vertical"
+                android:text="步数1302"
+                android:textColor="#ccecec"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#a5e7d5" />
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/linechart"
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+    </LinearLayout>
+</LinearLayout>
+
+<TextView
+    android:layout_width="match_parent"
+    android:background="#dcdbdb"
+    android:layout_height="1px" />
+<TextView
+    android:id="@+id/tv_alldata"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:text="所有数据"
+    android:textSize="20sp"
+    android:gravity="center_vertical"
+   android:paddingLeft="15dp"
+    />
 </LinearLayout>
